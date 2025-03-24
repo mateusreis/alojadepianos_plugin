@@ -165,5 +165,41 @@
  
    
 
-   
+  /**
+   * Remove product title from breadcrumb on single product pages
+   */
+  add_filter( 'woocommerce_get_breadcrumb', 'remove_product_from_breadcrumb', 20, 2 );
+  function remove_product_from_breadcrumb( $crumbs, $breadcrumb ) {  
+     if ( is_product() ) {
+        global $product;
+        $index = count( $crumbs ) - 1; // product name is always last item
+        $value = $crumbs[$index];
+        $crumbs[$index][0] = null;
+     }
+     return $crumbs;
+  }
+
+  /**
+   * Format breadcrumbs with smaller font size
+   */
+  function smaller_breadcrumb_font() {
+      ?>
+      <style type="text/css">
+        .woocommerce-breadcrumb,
+        .woocommerce .woocommerce-breadcrumb,
+        nav.woocommerce-breadcrumb {
+            font-size: 0.75em !important; /* Reduced from 0.85em */
+            margin-bottom: 1em !important;
+            opacity: 0.8; /* Added for subtle appearance */
+        }
+          /* If you need to target specific theme breadcrumbs */
+        .breadcrumb-trail,
+        .breadcrumbs {
+            font-size: 0.75em !important; /* Reduced from 0.85em */
+            opacity: 0.8; /* Added for subtle appearance */
+        }
+      </style>
+      <?php
+  }
+  add_action('wp_head', 'smaller_breadcrumb_font');
 ?>
