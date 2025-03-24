@@ -14,7 +14,7 @@ require_once plugin_dir_path(__FILE__) . 'remove_actions.php';
 require_once plugin_dir_path(__FILE__) . 'product_custom_fields.php';
 require_once plugin_dir_path(__FILE__) . 'translations.php';
 require_once plugin_dir_path(__FILE__) . 'whatsapp.php';
-require_once plugin_dir_path(__FILE__) . 'prices.php';
+require_once plugin_dir_path(__FILE__) . 'prices_and_titles.php';
 require_once plugin_dir_path(__FILE__) . 'test.php';
 
 

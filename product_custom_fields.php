@@ -173,19 +173,6 @@ function save_product_custom_fields_values($post_id) {
 add_action('save_post', 'save_product_custom_fields_values');
 
 
-
-
-
-
-
-
-
-
-
-
-  /**
-   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
-   */
   function show_disponivel_para_experimentacao(){
     global $post;
   
@@ -200,15 +187,8 @@ add_action('save_post', 'save_product_custom_fields_values');
     <?php endif;
   }
     
-
-
-  /**
-   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
-   */
   function show_vendido_por_encomenda(){
     global $post;
-  
-
   
     // Vendido por encomenda
     $vendido_por_encomenda = get_post_meta($post->ID, 'vendido_por_encomenda', true);
@@ -219,20 +199,11 @@ add_action('save_post', 'save_product_custom_fields_values');
       </span>
     </div>
     <?php endif;
-  
-
   }
 
-
-  
-  /**
-   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
-   */
   function show_observacoes(){
     global $post;
-  
-
-  
+   
     // Observações
     $observacoes = get_post_meta($post->ID, 'observacoes', true);
     if ($observacoes) : ?>
@@ -242,15 +213,9 @@ add_action('save_post', 'save_product_custom_fields_values');
       </span>
     </div>
     <?php endif;
-
   }
   
-    
-
   
-  /**
-   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
-   */
   function show_lancamexxnto(){
     global $post;
  
@@ -265,8 +230,6 @@ add_action('save_post', 'save_product_custom_fields_values');
     <?php endif;
   }
   
-  
-
   function show_lancamento() {
     global $post;
   
@@ -288,17 +251,10 @@ add_action('save_post', 'save_product_custom_fields_values');
         echo '</div>';
       }
     }
-
-    // echo "<br>Data que deixa de ser lançamento: ". $data_fim_promocao;
+    //echo "<! -- Data que deixa de ser lançamento: ". $data_fim_promocao. " -->";
   }
-  // add_shortcode('lancamento', 'show_lancamento'); 
 
 
-/**
- * Exibe um link para o site oficial do produto.
- *
- * Utiliza o meta campo 'site_oficial'.
- */
 function show_siteoficial(){
   global $post;
   $site_oficial = get_post_meta($post->ID, 'site_oficial', true); // Obtém o valor do meta campo 'site_oficial'
@@ -312,17 +268,10 @@ function show_siteoficial(){
 };
 add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exibir o site oficial
   
-  // single price
+
+
   
-  // whatsapp
-  
-  // mensagem ecommerce
-  
-  // single meta
-  
-  // youtube 
-  
-  function getUrlfromYoutube($url){
+  function embedVideo($url){
       $height = 315;
       $width = 560;
       $width_shorts = $height;
@@ -379,12 +328,12 @@ add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exib
     // 'https://youtube.com/shorts/aCemOhwp4ho'
     // );
     // foreach($urls as $url){
-    //  echo getUrlfromYoutube($url);
+    //  echo embedVideo($url);
     // }
   
     if ($youtube_url) :
         echo '<h3>Ouça:</h3>';
-        echo getUrlfromYoutube($youtube_url);
+        echo embedVideo($youtube_url);
     endif; 
   }
   
@@ -406,17 +355,7 @@ add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exib
     
   };
   
-  /**
-   * Exibe um texto indicando se um produto está em promoção ou não,
-   * com base em uma data definida pelo usuário.
-   *
-   * @param string $data_fim_promocao Data de término da promoção no formato YYYY-MM-DD.
-   * @return void
-   */
-  
 
-  
-  
 
 
   function custom_fields_styles() {
@@ -474,42 +413,15 @@ add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exib
   }
   add_action( 'wp_head', 'custom_fields_styles' );  
 
-
- 
   // actions para exibir os shortcodes nas páginas de produtos
   
   add_action('woocommerce_single_product_summary', 'show_lancamento', 1);
-  add_action('woocommerce_single_product_summary', 'show_siteoficial', 40); 
-
   add_action('woocommerce_single_product_summary', 'show_disponivel_para_experimentacao', 1);
-  add_action('woocommerce_single_product_summary', 'show_vendido_por_encomenda', 40);
-  add_action('woocommerce_single_product_summary', 'show_observacoes', 40);
-  add_action('woocommerce_single_product_summary', 'show_youtube_link', 40);
+  add_action('woocommerce_single_product_summary', 'show_observacoes', 10);
 
-  
+  add_action('woocommerce_single_product_summary', 'show_vendido_por_encomenda', 30);
 
-// add_action( 'woocommerce_single_product_summary', 'customizing_add_cart', 1 );
-
-// adiciona segundo bnotao
-// add_action( 'woocommerce_single_product_summary', 'customizing_add_cart', 1 );
-// function customizing_add_cart() {
-//     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-//     add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 5 );
-// }
-
-
-  
-  /**
-   * Exibe a descrição curta do produto após o resumo do produto.
-   */
-  // function show_short_description() {
-  //   global $post;
-  //   $short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt ); // Obtém a descrição curta aplicando filtros do WooCommerce
-  //   if( !empty($short_description) ) { // Se a descrição curta não estiver vazia, exibe
-  //     echo $short_description;
-  //   }
-  // }
-  // add_action('woocommerce_after_single_product_summary', 'show_short_description', 25); // Adiciona a função ao hook 'woocommerce_after_single_product_summary' com prioridade 25
-    
+  add_action('woocommerce_single_product_summary', 'show_siteoficial', 140); 
+  add_action('woocommerce_single_product_summary', 'show_youtube_link', 140);
 
 ?>

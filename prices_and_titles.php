@@ -156,6 +156,28 @@ add_filter('woocommerce_variation_availability_html', 'custom_variation_stock_ht
 
 
 
+
+
+
+
+
+
+
+// formata titulo no loop
+remove_action( 'woocommerce_shop_loop_item_title','woocommerce_template_loop_product_title', 10 );
+add_action('woocommerce_shop_loop_item_title', 'abChangeProductsTitle', 10 );
+function abChangeProductsTitle() {
+    echo '<h4 class="woocommerce-loop-product_title">xxccxxccxxxx<a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>';
+}
+
+// sem tem template, nao funciona?
+remove_action( 'woocommerce_template_single_title','woocommerce_template_loop_product_title', 1111111 );
+add_action('woocommerce_template_single_title', 'chagnesingletiotle', 1111111 );
+function chagnesingletiotle() {
+    echo '<h2 class="woocommerce-loop-product_title">xoopoop<a href="'.get_the_permalink().'">' . get_the_title() . '</a></h2>';
+}
+
+
   
 
   
