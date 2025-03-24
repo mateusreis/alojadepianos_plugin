@@ -180,10 +180,13 @@ add_action('save_post', 'save_product_custom_fields_values');
 
 
 
+
+
+
   /**
    * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
    */
-  function show_custom_fields(){
+  function show_disponivel_para_experimentacao(){
     global $post;
   
     // Disponível para experimentação
@@ -195,6 +198,17 @@ add_action('save_post', 'save_product_custom_fields_values');
       </span>
     </div>
     <?php endif;
+  }
+    
+
+
+  /**
+   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
+   */
+  function show_vendido_por_encomenda(){
+    global $post;
+  
+
   
     // Vendido por encomenda
     $vendido_por_encomenda = get_post_meta($post->ID, 'vendido_por_encomenda', true);
@@ -206,6 +220,19 @@ add_action('save_post', 'save_product_custom_fields_values');
     </div>
     <?php endif;
   
+
+  }
+
+
+  
+  /**
+   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
+   */
+  function show_observacoes(){
+    global $post;
+  
+
+  
     // Observações
     $observacoes = get_post_meta($post->ID, 'observacoes', true);
     if ($observacoes) : ?>
@@ -215,37 +242,53 @@ add_action('save_post', 'save_product_custom_fields_values');
       </span>
     </div>
     <?php endif;
+
+  }
   
+    
+
+  
+  /**
+   * Exibe campos customizados: "Disponível para experimentação", "Vendido por encomenda" e "Observações".
+   */
+  function show_lancamexxnto(){
+    global $post;
+ 
     // Vendido por encomenda
-    $lancamento_termino = get_post_meta($post->ID, 'lancamento_termino', true);
-    if ($lancamento_termino) : ?>
+    $lancamento = get_post_meta($post->ID, 'lancamento', true);
+    if ($lancamento) : ?>
     <div class="product-custom-field">
       <span class="wp-block-heading lancamento">
-          <strong><?php show_lancamento($lancamento_termino); ?></strong>
+          <strong><?php formata_data_lancamento($lancamento); ?></strong>
       </span>
     </div>
     <?php endif;
   }
   
+  
 
-  function show_lancamento($data_fim_promocao) {
+  function show_lancamento() {
+    global $post;
+  
     // Obtém a data atual.
     $data_atual = date('Y-m-d');
-  
+    $data_fim_promocao = get_post_meta($post->ID, 'lancamento_termino', true);
+    $lancamento = get_post_meta($post->ID, 'lancamento', true);
+
     // Converte as datas para objetos DateTime para comparação.
     $data_fim = new DateTime($data_fim_promocao);
     $data_atual_obj = new DateTime($data_atual);
-  
-    // Verifica se a data de término da promoção é futura.
-    if ($data_fim > $data_atual_obj) {
-      echo '<div class="product-custom-field">';
-      echo '<span class="wp-block-heading lancamento">';
-      echo '<strong>LANÇAMENTO!</strong>';
-      echo '</span>';
-      echo '</div>';
-    // } else {
-    //   echo "Não é mais lançamento";
+    if ($lancamento){
+      // Verifica se a data de término da promoção é futura.
+      if (!$data_fim || $data_fim > $data_atual_obj) {
+        echo '<div class="product-custom-field">';
+        echo '<span class="wp-block-heading lancamento">';
+        echo '<strong>LANÇAMENTO!</strong>';
+        echo '</span>';
+        echo '</div>';
+      }
     }
+
     // echo "<br>Data que deixa de ser lançamento: ". $data_fim_promocao;
   }
   // add_shortcode('lancamento', 'show_lancamento'); 
@@ -435,19 +478,24 @@ add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exib
  
   // actions para exibir os shortcodes nas páginas de produtos
   
-  add_action('woocommerce_single_product_summary', 'show_lancamento', 5); 
+  add_action('woocommerce_single_product_summary', 'show_lancamento', 1);
   add_action('woocommerce_single_product_summary', 'show_siteoficial', 40); 
-  add_action('woocommerce_single_product_summary', 'show_custom_fields', 40);
+
+  add_action('woocommerce_single_product_summary', 'show_disponivel_para_experimentacao', 1);
+  add_action('woocommerce_single_product_summary', 'show_vendido_por_encomenda', 40);
+  add_action('woocommerce_single_product_summary', 'show_observacoes', 40);
   add_action('woocommerce_single_product_summary', 'show_youtube_link', 40);
-   
 
+  
 
+// add_action( 'woocommerce_single_product_summary', 'customizing_add_cart', 1 );
 
-add_action( 'woocommerce_single_product_summary', 'customizing_add_cart', 1 );
-function customizing_add_cart() {
-    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-    add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 5 );
-}
+// adiciona segundo bnotao
+// add_action( 'woocommerce_single_product_summary', 'customizing_add_cart', 1 );
+// function customizing_add_cart() {
+//     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+//     add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 5 );
+// }
 
 
   
