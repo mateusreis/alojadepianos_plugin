@@ -158,27 +158,53 @@ add_filter('woocommerce_variation_availability_html', 'custom_variation_stock_ht
 
 
 
+add_action('plugins_loaded','alter_woo_hooks');
+
+function alter_woo_hooks() {
+    $add_result = add_action( 'woocommerce_shop_loop_item_title', 'abChangeProductsTitle', 10);
+    $remove_result = remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+
+    // echo "<hr/>result of add_result = " . $add_result . "<hr/>";
+    // echo "<hr/>result of remove_result = " . $remove_result . "<hr/>";
+}
 
 
-
+function abChangeProductsTitle() {
+    echo '<h4 class="woocommerce-loop-product_title">rrrqqq <a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>';
+}
 
 
 // formata titulo no loop
-remove_action( 'woocommerce_shop_loop_item_title','woocommerce_template_loop_product_title', 10 );
-add_action('woocommerce_shop_loop_item_title', 'abChangeProductsTitle', 10 );
-function abChangeProductsTitle() {
-    echo '<h4 class="woocommerce-loop-product_title">xxccxxccxxxx<a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>';
-}
+// remove_action( 'woocommerce_shop_loop_item_title','woocommerce_template_loop_product_title', 1 );
+// add_action('woocommerce_shop_loop_item_title', 'abChangeProductsTitle', 10 );
+// function abChangeProductsTitle() {
+//     echo '<h4 class="woocommerce-loop-product_title">xxccxxccxxxx<a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>';
+// }
 
 // sem tem template, nao funciona?
-remove_action( 'woocommerce_template_single_title','woocommerce_template_loop_product_title', 1111111 );
-add_action('woocommerce_template_single_title', 'chagnesingletiotle', 1111111 );
-function chagnesingletiotle() {
-    echo '<h2 class="woocommerce-loop-product_title">xoopoop<a href="'.get_the_permalink().'">' . get_the_title() . '</a></h2>';
-}
+// remove_action( 'woocommerce_template_single_title','woocommerce_template_loop_product_title', 1111111 );
+// add_action('woocommerce_template_single_title', 'chagnesingletiotle', 1111111 );
+// function chagnesingletiotle() {
+//     echo '<h2 class="woocommerce-loop-product_title">xoopoop<a href="'.get_the_permalink().'">' . get_the_title() . '</a></h2>';
+// }
 
 
+/*
+
+add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+
+add_action( 'woocommerce_before_subcategory', 'woocommerce_template_loop_category_link_open', 10 );
+add_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+add_action( 'woocommerce_after_subcategory', 'woocommerce_template_loop_category_link_close', 10 );
+
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
   
+ */
 
   
   

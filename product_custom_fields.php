@@ -417,11 +417,54 @@ add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exib
   
   add_action('woocommerce_single_product_summary', 'show_lancamento', 1);
   add_action('woocommerce_single_product_summary', 'show_disponivel_para_experimentacao', 1);
-  add_action('woocommerce_single_product_summary', 'show_observacoes', 10);
+  add_action('woocommerce_single_product_summary', 'show_observacoes', 30);
 
   add_action('woocommerce_single_product_summary', 'show_vendido_por_encomenda', 30);
 
   add_action('woocommerce_single_product_summary', 'show_siteoficial', 140); 
   add_action('woocommerce_single_product_summary', 'show_youtube_link', 140);
 
+
+  add_action('plugins_loaded','alter_woo_hooks2');
+
+function alter_woo_hooks2() {
+    $add_result = add_action( 'woocommerce_shop_loop_item_title', 'newTitle', 5);
+    $remove_result = remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+
+    echo "<hr/>result of add_result = " . $add_result . "<hr/>";
+    echo "<hr/>result of remove_result = " . $remove_result . "<hr/>";
+}
+
+
+function newTitle() {
+  global $product;
+    echo '<h4 class="woocommerce-loop-product_title">cccwsss <a href="'.get_the_permalink().'">' . get_the_title() . '</a></h4>';
+}
+
+
+
+
+// esse metodo de alterar hooks funciona
+
+function alter_some_hook() {
+    $priority = has_action('woocommerce_single_product_summary', 'woocommerce_template_single_price');
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', $priority);
+
+    add_action('woocommerce_single_product_summary','sdfsdf',10);
+}
+
+function sdfsdf(){
+  echo "AQUI VAI O PRECO NOVO CARAIO";
+}
+
+add_action('plugins_loaded','alter_some_hook');
+
+
+
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 ?>
