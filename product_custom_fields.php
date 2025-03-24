@@ -431,8 +431,8 @@ function alter_woo_hooks2() {
     $add_result = add_action( 'woocommerce_shop_loop_item_title', 'newTitle', 5);
     $remove_result = remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
 
-    echo "<hr/>result of add_result = " . $add_result . "<hr/>";
-    echo "<hr/>result of remove_result = " . $remove_result . "<hr/>";
+    // echo "<hr/>result of add_result = " . $add_result . "<hr/>";
+    // echo "<hr/>result of remove_result = " . $remove_result . "<hr/>";
 }
 
 
