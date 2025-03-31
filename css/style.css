@@ -1,0 +1,651 @@
+
+.woocommerce-privacy-policy-text {
+    display: none;
+}
+
+
+/**
+    * WooCommerce
+*/  
+
+.wc-block-grid__product-onsale{
+    background-color: rgba(198, 75, 75) 0.7;
+}
+
+
+
+
+
+.siteoficial a{
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .lancamento{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;  
+    background-color: #ffcc00;
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    order: 3;
+  }
+
+  .experimentacao {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(38, 171, 91, 1);
+    background-color: rgba(34, 197, 94, 0.15);
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    order: 3;
+  }
+
+  .encomenda{
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(38, 171, 91, 1);
+    background-color: rgba(34, 197, 94, 0.15);
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    order: 3;
+
+  }
+
+  .observacoes {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(77, 77, 77);
+    background-color: rgba(128, 128, 128, 0.15);
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    order: 3;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .price_sale_variable{
+      
+  }
+
+  .price_sale{
+      display: block;
+      margin-top: 20px;
+  }
+
+  .price_sale del{
+      color: #666666;
+  };
+
+  .price_sale .price{
+      font-size:1.5em;
+      color: #990000 !important;      
+  };
+  .woocommerce-variation-description p,
+  p.in-stock{
+      font-weight: bold;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.top-bar {
+    height: 8px;
+    background-color: #222;
+    width: 100%;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.product-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.product-code {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.pricing-section {
+    margin: 20px 0;
+}
+
+.main-price {
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #e30000;
+}
+
+.payment-term {
+    font-size: 24px;
+    color: #e30000;
+    margin-left: 5px;
+}
+
+.savings {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.regular-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.installment-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #555;
+}
+
+.installment-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-options {
+    color: #555;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.purchase-section {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.quantity-selector {
+    display: flex;
+    position: relative;
+    width: 80px;
+}
+
+.quantity-input {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.quantity-buttons {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.quantity-button {
+    flex: 1;
+    width: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.quantity-button.plus {
+    border-bottom: none;
+    border-radius: 0 4px 0 0;
+}
+
+.quantity-button.minus {
+    border-radius: 0 0 4px 0;
+}
+
+.buy-button {
+    flex: 1;
+    background-color: #e30000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.whatsapp-button {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: #e30000;
+    border: 1px solid #e30000;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.availability {
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.availability span {
+    font-weight: bold;
+}
+
+.shipping-calculator {
+    margin: 20px 0;
+}
+
+.shipping-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.shipping-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.shipping-input {
+    display: flex;
+    gap: 10px;
+}
+
+.cep-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    font-size: 16px;
+}
+
+.ok-button {
+    background-color: #e30000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.shipping-options {
+    margin-top: 20px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.shipping-option {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.shipping-option:last-child {
+    border-bottom: none;
+}
+
+.shipping-price {
+    width: 100px;
+    font-weight: bold;
+}
+
+.shipping-time {
+    width: 100px;
+    font-weight: bold;
+}
+
+.shipping-method {
+    flex: 1;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}      
+
+
+
+
+/* 
+
+body .et_pb_button, button.single_add_to_cart_button  {
+    color:#fff !important;
+}
+
+.woocommerce-product-details__custom-fields-disponivel_para_experimentacao{
+
+    color: #333;
+    background-color: #33663350;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: bold;
+    margin:10px 0;
+}
+
+.woocommerce-product-details__custom-fields-vendido_por_encomenda{
+    color: #333;
+    background-color: #99000050;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.woocommerce-product-details__custom-fields-lancamento{
+    color:#f90;
+    font-weight: bold;
+}
+
+
+.social-media-box h2 {
+    font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;    
+}
+
+.woocommerce-product-details__custom-fields-site_oficial{
+    padding:10px 0 0;
+}
+
+p.price{
+    padding:20px 0 0 0;
+}
+
+li p.price{
+    padding-top:0px
+}
+
+.woocommerce-breadcrumb{
+    padding: 0 0 20px 0;
+}
+
+.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+}
+
+.et-cart-info {
+    display: none;
+}
+
+.woocommerce-Tabs-panel h2{
+    display:none;
+}
+
+.woocommerce-products-header{
+    margin-bottom:30px;
+}
+
+.wc-tab h4{
+    font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
+    color:#666;
+    line-height: 2em;
+}
+
+
+strike {
+text-decoration: none;
+}
+
+p.price{
+	padding:0 0 5px 0;
+	line-height:2em;
+}
+
+.woocommerce-breadcrumb{
+	padding: 0 0 20px 0;
+}
+
+.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+}
+
+.woocommerce-variation-add-to-cart button.single_add_to_cart_button{
+    margin-bottom:10px;
+    margin-right:10px;
+}
+
+
+.variation-title{
+	font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
+	font-size:16px;
+	color:#666;
+	font-weight:bold;
+}
+
+span.onsale {
+    background-color: #000!important;
+    color: #fff;
+	font-size:12px!important;
+	text-transform:uppercase;
+	display:none;
+}
+
+.woocommerce button.button.alt.disabled{
+    background-color: #666!important;
+    color: #fff;
+}
+
+
+
+p.out-of-stock{
+    color:#f00;
+
+}
+
+.entry-summary p.price span,
+.price .woocommerce-Price-amount {
+
+	color:#2ea3f2;
+	font-weight:bold;
+}
+.woocommerce div.product p.price,
+.price {
+    color:#666;
+	font-weight:bold !important;    
+}
+
+
+.email-warning .success,
+.et-pb-contact-message p.message {
+    color: #fff;
+
+    text-align: center;
+    background-color:#363;
+    padding:10px 0;
+    line-height: 1em;
+}
+
+.email-warning .success{
+	padding-bottom:20px;
+}
+
+.contact-form-checkout p{
+
+}
+.contact-form-checkout .et_pb_contact{
+    margin-top:20px;
+}
+
+.woocommerce ul.products li.product strong{
+    display:inline!important;
+}
+
+.up-sells .price,
+.related.products .price{
+    visibility:hidden;
+}
+
+h1.et_pb_contact_main_title{
+    visibility:hidden;
+}
+
+.et_pb_contact{
+	margin-top:10px;
+} 
+#footer-info a,
+#footer-info{
+    color:#ccc;
+}
+
+.custom_buttom-section{
+clear: both;
+padding: 10px 0 0 0;
+text-align: center;
+}
+
+.woocommerce div.product form.cart{
+    margin: 0 !important;
+}
+.mensagem_ecommerce{
+    font-size: x-small;
+    color:#666;
+    padding:5px 0;
+} */
+
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+/* DAQUI PRA BAIXO É DO TEMA 2025 */
+
+
+/* box de produto na home */
+.wc-block-product-template__responsive>li {
+    margin-block-start: 0;
+    border: solid;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: #ccc;
+    border-width: 1px;
+}
+
+/* selo de oferta/promocao */
+.wc-block-components-product-sale-badge {
+    background: #d00 !important;
+    border: none !important;
+    color: #fff !important;
+}

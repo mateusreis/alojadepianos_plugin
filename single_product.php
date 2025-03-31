@@ -357,62 +357,6 @@ add_shortcode('siteoficial', 'show_siteoficial'); // Cria um shortcode para exib
   
 
 
-
-  function custom_fields_styles() {
-    echo '<style>
-            .siteoficial a{
-              font-size: 1rem;
-              font-weight: 500;
-            }
-
-            .lancamento{
-              font-size: 1rem;
-              font-weight: 500;
-              color: #000000;  
-              background-color: #ffcc00;
-              margin: 0.5rem 0rem 1rem 0rem;
-              padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-              border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-              order: 3;
-            }
-
-            .experimentacao {
-              font-size: 1rem;
-              font-weight: 500;
-              color: rgba(38, 171, 91, 1);
-              background-color: rgba(34, 197, 94, 0.15);
-              margin: 0.5rem 0rem 1rem 0rem;
-              padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-              border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-              order: 3;
-            }
-
-            .encomenda{
-              font-size: 1rem;
-              font-weight: 500;
-              color: rgba(38, 171, 91, 1);
-              background-color: rgba(34, 197, 94, 0.15);
-              margin: 0.5rem 0rem 1rem 0rem;
-              padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-              border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-              order: 3;
-
-            }
-
-            .observacoes {
-              font-size: 1rem;
-              font-weight: 500;
-              color: rgb(77, 77, 77);
-              background-color: rgba(128, 128, 128, 0.15);
-              margin: 0.5rem 0rem 1rem 0rem;
-              padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-              border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-              order: 3;
-            }
-          </style>';
-  }
-  add_action( 'wp_head', 'custom_fields_styles' );  
-
   // actions para exibir os shortcodes nas páginas de produtos
   
   add_action('woocommerce_single_product_summary', 'show_lancamento', 1);
@@ -459,6 +403,45 @@ function format_prices_hook() {
 
 function show_precos(){
   echo '<h3 class="woocommerce-loop-product_title">xxxffsss NOVOS PRECOS</h3>';
+  echo '<div class="pricing-section">
+            <div class="main-price">
+                <span class="price">R$ 6.852,31</span>
+                <span class="payment-term">à vista</span>
+            </div>
+            <p class="savings">Economize: R$ 761,37</p>
+            
+            <p class="regular-price">R$ 7.613,68</p>
+            
+            <div class="installment-info">
+                <div class="card-icon">
+                    <i class="far fa-credit-card"></i>
+                </div>
+                <div class="installment-text">
+                    <span>até <strong>10x</strong> de <strong>R$ 761,36</strong> sem juros</span>
+                    <a href="#" class="payment-options">mais formas de pagamento</a>
+                </div>
+            </div>
+            
+            <div class="purchase-section">
+                <div class="quantity-selector">
+                    <input type="text" value="1" class="quantity-input">
+                    <div class="quantity-buttons">
+                        <button class="quantity-button plus">+</button>
+                        <button class="quantity-button minus">−</button>
+                    </div>
+                </div>
+                
+                <button class="buy-button">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+            </div>
+            
+            <button class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i> Comprar pelo whatsapp
+            </button>
+            
+            <p class="availability">Disponibilidade: <span>Disponível</span></p>
+        </div>';
 }
 
 add_action('plugins_loaded','format_prices_hook');
@@ -526,37 +509,6 @@ function custom_price_html( $price, $product ) {
 
   return $price;
 }
-
-
-
-function price_styles() {
-  echo '<style>
-      .price_sale_variable{
-      
-      }
-
-      .price_sale{
-          display: block;
-          margin-top: 20px;
-      }
-
-      .price_sale del{
-          color: #666666;
-      };
-
-      .price_sale .price{
-          font-size:1.5em;
-          color: #990000 !important;      
-      };
-      .woocommerce-variation-description p,
-      p.in-stock{
-          font-weight: bold;
-      }
-
-  </style>';
-}
-add_action( 'wp_head', 'price_styles' );
-
 
 
 function custom_variable_stock_style() {

@@ -18,13 +18,20 @@ require_once plugin_dir_path(__FILE__) . 'whatsapp.php';
 require_once plugin_dir_path(__FILE__) . 'test.php';
 
 
-/**
- * Enfileira o arquivo CSS externo 'style.css' do plugin.
- */
-function carrega_css_externo_local() {
-  wp_enqueue_style( 'carrega-css-externo-local', plugins_url( 'style.css', __FILE__ ), array(), '1.0', 'all' );
+
+
+// Enqueue the custom CSS
+function black_background_enqueue_styles() {
+  wp_enqueue_style(
+      'alojadepianos-plugin-style',
+      plugins_url('css/style.css', __FILE__),
+      array(),
+      '1.0.0'
+  );
 }
-add_action( 'wp_enqueue_scripts', 'carrega_css_externo_local' );
+add_action('wp_enqueue_scripts', 'black_background_enqueue_styles'); 
+
+
 
 function incluir_tags_na_busca_woocommerce( $query, $query_vars ) {
   if ( isset( $query_vars['s'] ) && empty( $query_vars['s'] ) === false ) {
