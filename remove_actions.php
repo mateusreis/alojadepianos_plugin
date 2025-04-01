@@ -107,6 +107,17 @@
  }
  add_action( 'init', 'thenga_remove_filtering',1 );
  
+ /**
+  * Remove product tags display from single product pages
+  */  
+
+function remove_tags() {
+  $priority = has_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta');
+  remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', $priority);
+  // add_action('woocommerce_single_product_summary','show_precos',10);
+}
+add_action('init', 'remove_tags');
+
  
  
   /**

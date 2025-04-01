@@ -148,17 +148,6 @@
 
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background-color: #f5f5f5;
-    color: #333;
-}
 
 .top-bar {
     height: 8px;
@@ -196,30 +185,34 @@ hr {
 }
 
 .main-price {
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .price {
     font-size: 36px;
     font-weight: bold;
     color: #e30000;
+    line-height: 15px;
 }
 
 .payment-term {
     font-size: 24px;
     color: #e30000;
     margin-left: 5px;
+    line-height: 15px;
 }
 
 .savings {
-    margin-bottom: 10px;
+
     font-size: 16px;
+    margin:0;
 }
 
 .regular-price {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
+    line-height: 15px;
 }
 
 .installment-info {
@@ -237,7 +230,11 @@ hr {
 .installment-text {
     display: flex;
     flex-direction: column;
+    line-height: 15px;
 }
+
+
+
 
 .payment-options {
     color: #555;

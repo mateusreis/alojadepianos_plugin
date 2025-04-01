@@ -9,6 +9,7 @@
 
  // Include the function files
 require_once plugin_dir_path(__FILE__) . 'admin_page.php';
+require_once plugin_dir_path(__FILE__) . 'custom_fields.php';
 require_once plugin_dir_path(__FILE__) . 'help_page.php';
 require_once plugin_dir_path(__FILE__) . 'remove_actions.php';
 require_once plugin_dir_path(__FILE__) . 'single_product.php';
