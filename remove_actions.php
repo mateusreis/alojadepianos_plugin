@@ -256,6 +256,10 @@ add_action('woocommerce_before_single_product', 'ocultar_product_meta_sem_catego
 
 
 
+/**
+ * Remove product description heading from single product page
+ */
+add_filter('woocommerce_product_description_heading', '__return_false');
 
 
 
