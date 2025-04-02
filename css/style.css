@@ -1,4 +1,3 @@
-
 .woocommerce-privacy-policy-text {
     display: none;
 }
@@ -35,8 +34,8 @@
   .experimentacao {
     font-size: 1rem;
     font-weight: 500;
-    color: rgba(38, 171, 91, 1);
-    background-color: rgba(34, 197, 94, 0.15);
+    background-color: rgba(38, 171, 91, 1);
+    color: #fff;
     margin: 0.5rem 0rem 1rem 0rem;
     padding: 0.65rem 0.85rem 0.65rem 0.85rem;
     border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
@@ -46,8 +45,8 @@
   .encomenda{
     font-size: 1rem;
     font-weight: 500;
-    color: rgba(38, 171, 91, 1);
-    background-color: rgba(34, 197, 94, 0.15);
+    color: rgb(77, 77, 77);
+    background-color: rgba(128, 128, 128, 0.15);
     margin: 0.5rem 0rem 1rem 0rem;
     padding: 0.65rem 0.85rem 0.65rem 0.85rem;
     border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
@@ -165,13 +164,16 @@
 .product-title {
     font-size: 28px;
     color: #333;
-    margin-bottom: 10px;
+
     font-weight: bold;
+    margin-bottom:0 !important;
+    margin-top:0;
 }
 
 .product-code {
     color: #666;
-    margin-bottom: 15px;
+    margin-bottom:0 !important;
+    margin-top:0 !important;
 }
 
 hr {
@@ -182,17 +184,22 @@ hr {
 
 .pricing-section {
     margin: 20px 0;
+
 }
 
 .main-price {
     margin-bottom: 0;
 }
 
+.payment-condition{
+    margin: 0;
+}
+
 .price {
     font-size: 36px;
     font-weight: bold;
     color: #e30000;
-    line-height: 15px;
+
 }
 
 .payment-term {
@@ -203,16 +210,16 @@ hr {
 }
 
 .savings {
-
+    font-weight: bold;
     font-size: 16px;
-    margin:0;
+    margin:10px 0;
 }
 
 .regular-price {
-    font-size: 20px;
+    /* font-size: 20px;
     font-weight: bold;
     /* margin-bottom: 15px; */
-    line-height: 15px;
+    line-height: 15px; */
 }
 
 .installment-info {
@@ -231,6 +238,7 @@ hr {
     display: flex;
     flex-direction: column;
     line-height: 15px;
+    font-size: 15px;
 }
 
 
@@ -292,8 +300,9 @@ hr {
     border-radius: 0 0 4px 0;
 }
 
-.buy-button {
+.single_add_to_cart_button {
     flex: 1;
+    width: 100%;    
     background-color: #e30000;
     color: white;
     border: none;
@@ -306,14 +315,27 @@ hr {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    padding: 12px;
+}
+
+.single_add_to_cart_button:before {
+    content: '\f07a'; /* Unicode for FontAwesome shopping cart icon */
+    font-family: 'FontAwesome';
+    padding-right: 5px;
 }
 
 .whatsapp-button {
     width: 100%;
     padding: 12px;
-    background-color: white;
-    color: #e30000;
-    border: 1px solid #e30000;
+    /* background-color: white;
+    color:rgba(38, 171, 91, 1);
+    border: 1px solid rgba(38, 171, 91, 1);; */
+
+    color: white;
+    background-color:rgb(15, 119, 57);
+    border: 1px solid rgb(6, 58, 27);;
+
+    
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
@@ -645,4 +667,117 @@ text-align: center;
     background: #d00 !important;
     border: none !important;
     color: #fff !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#woocommerce-correios-calculo-de-frete-na-pagina-do-produto{
+    background-color: #999 !important;
+}
+
+.containerCalculator{
+    width: auto !important;
+}
+
+.calculatorRow p{
+    margin:0 0 20px 0 !important;
+}
+
+
+
+
+
+.variations{
+    border: 1px solid #ccc !important;
+}
+
+.variations td{
+    padding-bottom: 0 !important;
+};
+
+.variations tr td select#cores{
+    background-color: #555 !important;
+    color: #fff !important;
+}
+
+
+
+
+
+/* Main info-destaque container */
+.info-destaque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 6;
+    overflow: hidden;
+    background-color: #d00;
+    color: #fff;
+    font-size: 15px;    
+    width: 100%;
+    min-height: 32px;
+
+    padding: 3px 10px;
+    color: #fff;    
+}
+
+/* Link styles */
+.info-destaque a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Icon container styles */
+.info-destaque .icone-place {
+    margin-right: 8px;
+    display: flex;
+}
+
+/* SVG icon styles */
+.info-destaque svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+/* Text styles */
+.info-destaque .info-texto {
+    white-space: break-spaces;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 1024px) {
+    .info-destaque a {
+        min-height: 23px;
+    }    
+
+    .info-destaque .icone-place {
+        margin-right: 6px;
+    }
+
+    .info-destaque .info-texto {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .info-destaque svg {
+        width: 15px;
+        height: 15px;
+    }
 }

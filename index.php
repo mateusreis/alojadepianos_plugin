@@ -82,38 +82,29 @@ add_action( 'woocommerce_product_query', 'show_newest_products_only' );
  
 
 
+
+//  intercept the variable.php template
+
+add_filter( 'woocommerce_locate_template', 'intercept_wc_template', 10, 3 );
 /**
- * Oculta categoria sem slug
+ * Filter the cart template path to use cart.php in this plugin instead of the one in WooCommerce.
+ *
+ * @param string $template      Default template file path.
+ * @param string $template_name Template file slug.
+ * @param string $template_path Template file name.
+ *
+ * @return string The new Template file path.
  */
-function ocultar_product_meta_sem_categoria_slug() {
-  // Declara a variável global $post para acessar o objeto do post atual.
-  global $post;
+function intercept_wc_template( $template, $template_name, $template_path ) {
 
-  // Verifica se a página atual é uma página de produto do WooCommerce.
-  if (is_product()) {
-      // Obtém todas as categorias do produto atual e armazena em $categorias.
-      $categorias = get_the_terms($post->ID, 'product_cat');
+	if ( 'variable.php' === basename( $template ) ) {
+		$template = trailingslashit( plugin_dir_path( __FILE__ ) ) . 'woocommerce/single-product/add-to-cart/variable.php';
+	}
 
-      // Verifica se o produto possui categorias e se não houve erros ao obtê-las.
-      if ($categorias && !is_wp_error($categorias)) {
-          // Itera sobre cada categoria do produto.
-          foreach ($categorias as $categoria) {
-              // Verifica se o slug da categoria atual é "sem-categoria".
-              if ($categoria->slug === 'sem-categoria') {
-                  // Se a categoria "sem-categoria" for encontrada, remove a ação que exibe as informações meta do produto.
-                  // 'woocommerce_template_single_meta' é a função que exibe os metadados do produto (SKU, categorias, tags).
-                  // 'woocommerce_single_product_summary' é o hook onde essa função é adicionada.
-                  // 40 é a prioridade da ação.
-                  remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
-                  // Sai do loop após encontrar a categoria "sem-categoria", pois não é necessário verificar as outras categorias.
-                  break;
-              }
-          }
-      }
-  }
+	return $template;
+
 }
-// Adiciona a função 'ocultar_product_meta_sem_categoria_slug' ao hook 'woocommerce_before_single_product'.
-// Isso garante que a função seja executada antes da exibição do conteúdo do produto.
-add_action('woocommerce_before_single_product', 'ocultar_product_meta_sem_categoria_slug');
+
+
 
 ?>
