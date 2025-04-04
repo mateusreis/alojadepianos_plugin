@@ -190,31 +190,6 @@ add_action('init', 'remove_tags');
      return $crumbs;
   }
 
-  /**
-   * Format breadcrumbs with smaller font size
-   */
-  function smaller_breadcrumb_font() {
-      ?>
-      <style type="text/css">
-        .woocommerce-breadcrumb,
-        .woocommerce .woocommerce-breadcrumb,
-        nav.woocommerce-breadcrumb {
-            font-size: 0.75em !important; /* Reduced from 0.85em */
-            margin-bottom: 1em !important;
-            opacity: 0.8; /* Added for subtle appearance */
-        }
-          /* If you need to target specific theme breadcrumbs */
-        .breadcrumb-trail,
-        .breadcrumbs {
-            font-size: 0.75em !important; /* Reduced from 0.85em */
-            opacity: 0.8; /* Added for subtle appearance */
-        }
-      </style>
-      <?php
-  }
-  add_action('wp_head', 'smaller_breadcrumb_font');
-
-
 
 
  
@@ -263,5 +238,14 @@ add_filter('woocommerce_product_description_heading', '__return_false');
 
 
 
+
+// remove dashicons in frontend to non-admin 
+function wpdocs_dequeue_dashicon() {
+  if (current_user_can( 'update_core' )) {
+      return;
+  }
+  wp_deregister_style('dashicons');
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_dequeue_dashicon' );
  
 ?>

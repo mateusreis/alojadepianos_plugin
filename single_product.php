@@ -310,6 +310,7 @@ function show_prices(){
             }
         }
 
+
         echo '<div class="installment-info">';
         echo '<div class="card-icon">';
         echo '<i class="far fa-credit-card"></i>';
@@ -319,12 +320,55 @@ function show_prices(){
         echo '<a href="#" class="payment-options">mais formas de pagamento</a>';
         echo '</div>';
         echo '</div>';
+      
+        // Check if product has shipping enabled
+        if ($product->needs_shipping()) {
+            echo '<div class="shipping-info">';
+            echo '<span class="truck-icon">';
+            echo '<i class="fas fa-truck"></i>';
+            echo '</span>';
+            echo '<span class="shipping-text">';
+            echo '<span>Produto com frete</span>';
+            echo '</span>';
+            echo '</div>';
+        } else {
+            echo '<div class="shipping-info">';
+            echo '<span class="truck-icon">';
+            echo '<i class="fas fa-ban"></i>';
+            echo '</span>'; 
+            echo '<span class="shipping-text">';
+            echo '<span>Produto sem frete</span>';
+            echo '</span>';
+            echo '</div>';
+        }
+
+        // Check if product has shipping enabled
+
+        // Check if product has shipping class "Somente retirada"
+        $shipping_class_id = $product->get_shipping_class_id();
+        $shipping_class = $shipping_class_id ? get_term($shipping_class_id, 'product_shipping_class') : null;
+        
+        if ($shipping_class && $shipping_class->slug === 'somente-retirada') {
+            echo '<div class="shipping-info">';
+            echo '<span class="store-icon">';
+            echo '<i class="fas fa-store"></i>';
+            echo '</span>';
+            echo '<span class="shipping-text">';
+            echo '<span>Somente retirada na loja</span>';
+            echo '</span>';
+            echo '</div>';
+        }else{
+          echo do_shortcode('[calculadora_melhor_envio product_id="'. $product->get_id() .'"]');
+        }
 
 
 
         echo '</div>'; // main-price
     echo '</div>'; // pricing-section
 }   
+
+
+
 
 
 // Change "Add to cart" button text to "Comprar"
@@ -366,7 +410,19 @@ return $availability;
 }
 
 
+// Make product title bold in shop loop
+add_filter('woocommerce_shop_loop_item_title', 'make_shop_title_bold', 10);
+function make_shop_title_bold() {
+    global $product;
+    echo '<h2 class="woocommerce-loop-product__title"><strong>' . get_the_title() . 'xx</strong></h2>';
+    return;
+}
 
+
+
+// function make_prices_blue($price_html, $product) {
+//     return '<span style="color: blue;">' . $price_html . '</span>';
+// }
 
 
 // // Add text between sale price and regular price in variation price display
@@ -469,6 +525,40 @@ return $availability;
 
 
 
+// [calculadora_melhor_envio product_id="product_id"]
+
+
+
+
+
+// These are actions you can unhook/remove!
+ 
+// add_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+// add_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+ 
+// add_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+// add_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+ 
+// add_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+// add_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+// add_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+ 
+// add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 ); 
+ 
+// add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+// add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+ 
+// add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+ 
+// add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+// add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+ 
+// add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+// add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+ 
+// add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+ 
+// add_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
 
 ?>

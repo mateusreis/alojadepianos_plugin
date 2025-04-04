@@ -8,15 +8,15 @@
 
 
  // Include the function files
-require_once plugin_dir_path(__FILE__) . 'admin_page.php';
-require_once plugin_dir_path(__FILE__) . 'custom_fields.php';
-require_once plugin_dir_path(__FILE__) . 'help_page.php';
-require_once plugin_dir_path(__FILE__) . 'remove_actions.php';
-require_once plugin_dir_path(__FILE__) . 'single_product.php';
-require_once plugin_dir_path(__FILE__) . 'translations.php';
-require_once plugin_dir_path(__FILE__) . 'whatsapp.php';
-
-require_once plugin_dir_path(__FILE__) . 'test.php';
+// require_once plugin_dir_path(__FILE__) . 'admin_page.php';
+// require_once plugin_dir_path(__FILE__) . 'custom_fields.php';
+// require_once plugin_dir_path(__FILE__) . 'help_page.php';
+// require_once plugin_dir_path(__FILE__) . 'remove_actions.php';
+// require_once plugin_dir_path(__FILE__) . 'single_product.php';
+// require_once plugin_dir_path(__FILE__) . 'translations.php';
+// require_once plugin_dir_path(__FILE__) . 'whatsapp.php';
+require_once plugin_dir_path(__FILE__) . 'loop.php';
+// require_once plugin_dir_path(__FILE__) . 'test.php';
 
 
 
