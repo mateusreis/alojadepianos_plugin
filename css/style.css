@@ -11,95 +11,150 @@
     background-color: rgba(198, 75, 75) 0.7;
 }
 
+.product-block{
+    display: block;
+}
+.product-cf{
+    display: inline-block;
+    margin:0;
+}
+
+.product-dib{
+    display: inline-block;
+}
+
+.product-custom-field{
+    text-transform: uppercase;
+    font-size: .86rem;
+    font-weight: bold;
+}
+
+.product-custom-field div{
+
+}
+
+    .lancamento {
+        color: #000000;  
+        background-color: #ffcc00;
+        margin: 0.5rem 0rem 1rem 0rem;
+        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    }
+
+    .experimentacao {
+        background-color: rgba(38, 171, 91, 1);
+        color: var(--wp--preset--color--white);
+        margin: 0.5rem 0rem 1rem 0rem;
+        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    }
+
+    .encomenda {
+        color: rgb(255, 255, 255);
+        background-color: rgba(141, 18, 121, 1);
+        margin: 0.5rem 0rem 1rem 0rem;
+        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    }
+
+    .observacoes {
+        color: rgb(56, 56, 56);
+        background-color: var(--wp--preset--color--light-gray);
+        margin: 0.5rem 0rem 0 0rem;
+        border: 1px dashed var(--wp--preset--color--medium-gray);
+        text-align: center;
+        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    }
+
+    .site-oficial {
+
+    }
+
+    .site-oficial a {
+        margin: 0.5rem 0rem 1rem 0rem;
+        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+
+        border: 1px solid var(--wp--preset--color--black);
+        font-size: .8rem;
+        text-decoration: none;
+        color: var(--wp--preset--color--light-black);
+    }
+
+    .youtube-link {
+
+    }
+
+    .youtube-link a {
+        margin: 0.5rem 0rem 1rem 0rem;
+        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+
+        border: 1px solid #d00;
+        font-size: .8rem;
+        text-decoration: none;
+        color: var(--wp--preset--color--light-black);
+    }
 
 
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .product-title {
+      font-size: 24px;
+    }
 
+    .product-cf,
+    .product-dib,
+    .product-block {
+      width: 100%;
+    }
 
-.siteoficial a{
-    font-size: 1rem;
-    font-weight: 500;
+    .experimentacao,
+    .encomenda,
+    .observacoes,
+    .site-oficial a,
+    .youtube-link a {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .container {
+      padding: 10px;
+    }
+
+    .price_sale .price {
+      font-size: 1.2em;
+    }
   }
 
-  .lancamento{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #000000;  
-    background-color: #ffcc00;
-    margin: 0.5rem 0rem 1rem 0rem;
-    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    order: 3;
-  }
+  @media screen and (max-width: 480px) {
+    .product-title {
+      font-size: 20px;
+    }
 
-  .experimentacao {
-    font-size: 1rem;
-    font-weight: 500;
-    background-color: rgba(38, 171, 91, 1);
-    color: var(--wp--preset--color--white);
-    margin: 0.5rem 0rem 1rem 0rem;
-    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    order: 3;
-  }
+    .experimentacao,
+    .encomenda,
+    .observacoes,
+    .site-oficial a,
+    .youtube-link a {
+      margin: 0.3rem 0;
+      padding: 0.4rem;
+      font-size: 0.7rem;
+    }
 
-  .encomenda{
-    font-size: 1rem;
-    font-weight: 500;
-    color: rgb(77, 77, 77);
-    background-color: rgba(128, 128, 128, 0.15);
-    margin: 0.5rem 0rem 1rem 0rem;
-    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    order: 3;
+    .container {
+      padding: 5px;
+    }
 
-  }
-
-  .observacoes {
-    font-size: 1rem;
-    font-weight: 500;
-    color: rgb(77, 77, 77);
-    background-color: rgba(128, 128, 128, 0.15);
-    margin: 0.5rem 0rem 1rem 0rem;
-    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    order: 3;
+    .price_sale .price {
+      font-size: 1em;
+    }
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -124,24 +179,6 @@
   p.in-stock{
       font-weight: bold;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -231,7 +268,6 @@ hr {
 .card-icon {
     font-size: 24px;
     margin-right: 10px;
-    color: #555;
 }
 
 .installment-text {
@@ -673,14 +709,7 @@ text-align: center;
 
 
 
-
-
-
-
-
-
-
-
+/* calculo de frete */
 
 #woocommerce-correios-calculo-de-frete-na-pagina-do-produto{
     background-color: #999 !important;
@@ -695,8 +724,7 @@ text-align: center;
 }
 
 
-
-
+/* variações */
 
 .variations{
     border: 1px solid #ccc !important;
@@ -744,3 +772,19 @@ text-align: center;
 .shipping-text{
     margin-left: 10px;
 }
+
+
+
+
+/* icones */
+
+.fa-credit-card{
+    color: #555;
+}
+.fa-youtube{
+    color: #d00;
+}
+.fa-globe{
+    color: #555;
+}
+
