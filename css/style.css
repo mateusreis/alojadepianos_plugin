@@ -1,217 +1,154 @@
-.woocommerce-privacy-policy-text {
-    display: none;
+.wp-block-allegro{
+    padding: 10px;
+    /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
-
-/**
-    * WooCommerce
-*/  
-
-.wc-block-grid__product-onsale{
-    background-color: rgba(198, 75, 75) 0.7;
+.product-title{
+    margin:0;
 }
 
-.product-block{
+/* sku */
+.cf-sku{
+    width: 100%;
+    margin:0 0 20px 0;
+}
+
+.product-sku {
+    color: #666;
+    margin-bottom:0 !important;
+    margin-top:0 !important;
+    font-size: .85rem;
+}
+
+/* whatsapp */
+.cf-whatsapp{
+    text-align: center;
+    width: 100%;
+}
+
+/* youtube e site oficial */
+.cf-extras{
+    text-transform: uppercase;
+    font-size: .86rem;
+    font-weight: bold;    
     display: block;
+    margin:0;
 }
-.product-cf{
+
+.cf-youtube, .cf-site-oficial {
     display: inline-block;
     margin:0;
 }
 
-.product-dib{
-    display: inline-block;
+.cf-site-oficial a {
+    /* margin: 0.5rem 0rem 1rem 0rem; */
+    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+
+    border: 1px solid var(--wp--preset--color--black);
+    font-size: .8rem;
+    text-decoration: none;
+    color: var(--wp--preset--color--light-black);
 }
 
-.product-custom-field{
-    text-transform: uppercase;
+.cf-youtube a {
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+
+    border: 1px solid #d00;
+    font-size: .8rem;
+    text-decoration: none;
+    color: var(--wp--preset--color--light-black);
+}
+
+
+/* observações */
+.cf-observacoes{
+
+    background-color: var(--wp--preset--color--light-gray);
+    margin: 0.5rem 0rem 0 0rem;
+    border: 1px dashed var(--wp--preset--color--medium-gray);
+    text-align: center;
+
+}
+
+.cf-observacoes p{
+    color: rgb(56, 56, 56);    
     font-size: .86rem;
     font-weight: bold;
 }
 
-.product-custom-field div{
-
-}
-
-    .lancamento {
-        color: #000000;  
-        background-color: #ffcc00;
-        margin: 0.5rem 0rem 1rem 0rem;
-        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    }
-
-    .experimentacao {
-        background-color: rgba(38, 171, 91, 1);
-        color: var(--wp--preset--color--white);
-        margin: 0.5rem 0rem 1rem 0rem;
-        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    }
-
-    .encomenda {
-        color: rgb(255, 255, 255);
-        background-color: rgba(141, 18, 121, 1);
-        margin: 0.5rem 0rem 1rem 0rem;
-        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    }
-
-    .observacoes {
-        color: rgb(56, 56, 56);
-        background-color: var(--wp--preset--color--light-gray);
-        margin: 0.5rem 0rem 0 0rem;
-        border: 1px dashed var(--wp--preset--color--medium-gray);
-        text-align: center;
-        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-    }
-
-    .site-oficial {
-
-    }
-
-    .site-oficial a {
-        margin: 0.5rem 0rem 1rem 0rem;
-        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-
-        border: 1px solid var(--wp--preset--color--black);
-        font-size: .8rem;
-        text-decoration: none;
-        color: var(--wp--preset--color--light-black);
-    }
-
-    .youtube-link {
-
-    }
-
-    .youtube-link a {
-        margin: 0.5rem 0rem 1rem 0rem;
-        padding: 0.65rem 0.85rem 0.65rem 0.85rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
-
-        border: 1px solid #d00;
-        font-size: .8rem;
-        text-decoration: none;
-        color: var(--wp--preset--color--light-black);
-    }
-
-
-  /* Responsive styles */
-  @media screen and (max-width: 768px) {
-    .product-title {
-      font-size: 24px;
-    }
-
-    .product-cf,
-    .product-dib,
-    .product-block {
-      width: 100%;
-    }
-
-    .experimentacao,
-    .encomenda,
-    .observacoes,
-    .site-oficial a,
-    .youtube-link a {
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      font-size: 0.75rem;
-    }
-
-    .container {
-      padding: 10px;
-    }
-
-    .price_sale .price {
-      font-size: 1.2em;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    .product-title {
-      font-size: 20px;
-    }
-
-    .experimentacao,
-    .encomenda,
-    .observacoes,
-    .site-oficial a,
-    .youtube-link a {
-      margin: 0.3rem 0;
-      padding: 0.4rem;
-      font-size: 0.7rem;
-    }
-
-    .container {
-      padding: 5px;
-    }
-
-    .price_sale .price {
-      font-size: 1em;
-    }
-  }
-
-
-    
-
-
-
-  .price_sale_variable{
-      
-  }
-
-  .price_sale{
-      display: block;
-      margin-top: 20px;
-  }
-
-  .price_sale del{
-      color: #666666;
-  };
-
-  .price_sale .price{
-      font-size:1.5em;
-      color: #990000 !important;      
-  };
-  .woocommerce-variation-description p,
-  p.in-stock{
-      font-weight: bold;
-  }
-
-
-
-
-
-
-.top-bar {
-    height: 8px;
-    background-color: #222;
-    width: 100%;
-}
-
-.container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-}
-
-.product-title {
-    font-size: 28px;
-    color: #333;
-
+/* custom fields */
+.cf-custom-fields{
+    font-size: var(--wp--preset--font-size--small);
+    text-transform: uppercase;
     font-weight: bold;
-    margin-bottom:0 !important;
-    margin-top:0;
+}
+.cf-lancamento, .cf-experimentacao, .cf-encomenda{
+    margin: 0 0 10px 0;
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    display: inline-block;    
+
+    color: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.6);
 }
 
-.product-code {
-    color: #666;
-    margin-bottom:0 !important;
-    margin-top:0 !important;
+.cf-lancamento{
+    /* background-color: #ffcc00;
+    color: var(--wp--preset--color--black); */
 }
+
+.cf-experimentacao{
+    /* background-color: rgba(38, 171, 91, 1);
+    color: var(--wp--preset--color--white); */
+}
+
+.cf-encomenda{
+    /* color: rgb(255, 255, 255);
+    background-color: rgba(141, 18, 121, 1); */
+}
+
+.cf-lancamento p, .cf-experimentacao p, .cf-encomenda p{
+    padding: 10px;
+    display: inline-block;
+    margin: 0;
+}
+
+.cf-disponivel{
+
+    font-size: .86rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PRICE */
+
+
+/* sku */
+
 
 hr {
     border: none;
@@ -220,23 +157,25 @@ hr {
 }
 
 .pricing-section {
-    margin: 20px 0;
+    margin: 0;
 
 }
 
 .main-price {
     margin-bottom: 0;
+    background-color: #fc0;
 }
 
 .payment-condition{
     margin: 0;
+    background-color: #f00;
 }
 
 .price {
     font-size: 36px;
     font-weight: bold;
     color: #e30000;
-
+    background-color: #999;
 }
 
 .payment-term {
@@ -244,12 +183,14 @@ hr {
     color: #e30000;
     margin-left: 5px;
     line-height: 15px;
+    background-color: #333;
 }
 
 .savings {
     font-weight: bold;
-    font-size: 16px;
-    margin:10px 0;
+    font-size: 1rem;
+    margin:0 0 10px 0;
+    background-color: greenyellow;
 }
 
 .regular-price {
@@ -257,6 +198,7 @@ hr {
     font-weight: bold;
     /* margin-bottom: 15px; */
     line-height: 15px; */
+    background-color: #839;
 }
 
 .installment-info {
@@ -277,19 +219,18 @@ hr {
     font-size: 15px;
 }
 
-
-
-
 .payment-options {
     color: #555;
     text-decoration: none;
     margin-top: 5px;
+    background-color: #25d366;
 }
 
 .purchase-section {
     display: flex;
     margin-bottom: 15px;
     gap: 10px;
+        background-color: #25d366;
 }
 
 .quantity-selector {
@@ -338,12 +279,12 @@ hr {
 
 .single_add_to_cart_button {
     flex: 1;
-    width: 100%;    
+    width: 400px;    
     background-color: #e30000;
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: var(--wp--preset--font-size--medium);
     font-weight: bold;
     cursor: pointer;
     padding: 0 20px;
@@ -353,6 +294,17 @@ hr {
     gap: 10px;
     padding: 12px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .single_add_to_cart_button:before {
     content: '\f07a'; /* Unicode for FontAwesome shopping cart icon */
@@ -482,202 +434,22 @@ hr {
 
 
 
-/* 
-
-body .et_pb_button, button.single_add_to_cart_button  {
-    color:var !important;
-}
-
-.woocommerce-product-details__custom-fields-disponivel_para_experimentacao{
-
-    color: #333;
-    background-color: #33663350;
-    padding: 5px 0;
-    text-align: center;
-    font-weight: bold;
-    margin:10px 0;
-}
-
-.woocommerce-product-details__custom-fields-vendido_por_encomenda{
-    color: #333;
-    background-color: #99000050;
-    padding: 5px 0;
-    text-align: center;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.woocommerce-product-details__custom-fields-lancamento{
-    color:#f90;
-    font-weight: bold;
-}
 
 
-.social-media-box h2 {
-    font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
-    font-size: 14px;
-    color: #666;
-    font-weight: bold;    
-}
 
-.woocommerce-product-details__custom-fields-site_oficial{
-    padding:10px 0 0;
-}
 
-p.price{
-    padding:20px 0 0 0;
-}
 
-li p.price{
-    padding-top:0px
-}
-
-.woocommerce-breadcrumb{
-    padding: 0 0 20px 0;
-}
-
-.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 1px solid #ddd;
-}
-
-.et-cart-info {
+/**
+    * WooCommerce
+*/  
+.woocommerce-privacy-policy-text {
     display: none;
 }
 
-.woocommerce-Tabs-panel h2{
-    display:none;
+.wc-block-grid__product-onsale{
+    background-color: rgba(198, 75, 75) 0.7;
 }
 
-.woocommerce-products-header{
-    margin-bottom:30px;
-}
-
-.wc-tab h4{
-    font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
-    color:#666;
-    line-height: 2em;
-}
-
-
-strike {
-text-decoration: none;
-}
-
-p.price{
-	padding:0 0 5px 0;
-	line-height:2em;
-}
-
-.woocommerce-breadcrumb{
-	padding: 0 0 20px 0;
-}
-
-.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 1px solid #ddd;
-}
-
-.woocommerce-variation-add-to-cart button.single_add_to_cart_button{
-    margin-bottom:10px;
-    margin-right:10px;
-}
-
-
-.variation-title{
-	font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
-	font-size:16px;
-	color:#666;
-	font-weight:bold;
-}
-
-span.onsale {
-    background-color: #000!important;
-    color: var(--wp--preset--color--white); 
-	font-size:12px!important;
-	text-transform:uppercase;
-	display:none;
-}
-
-.woocommerce button.button.alt.disabled{
-    background-color: #666!important;
-    color: var(--wp--preset--color--white);
-}
-
-
-
-p.out-of-stock{
-    color:#f00;
-
-}
-
-.entry-summary p.price span,
-.price .woocommerce-Price-amount {
-
-	color:#2ea3f2;
-	font-weight:bold;
-}
-.woocommerce div.product p.price,
-.price {
-    color:#666;
-	font-weight:bold !important;    
-}
-
-
-.email-warning .success,
-.et-pb-contact-message p.message {
-    color: var(--wp--preset--color--white);
-
-    text-align: center;
-    background-color:#363;
-    padding:10px 0;
-    line-height: 1em;
-}
-
-.email-warning .success{
-	padding-bottom:20px;
-}
-
-.contact-form-checkout p{
-
-}
-.contact-form-checkout .et_pb_contact{
-    margin-top:20px;
-}
-
-.woocommerce ul.products li.product strong{
-    display:inline!important;
-}
-
-.up-sells .price,
-.related.products .price{
-    visibility:hidden;
-}
-
-h1.et_pb_contact_main_title{
-    visibility:hidden;
-}
-
-.et_pb_contact{
-	margin-top:10px;
-} 
-#footer-info a,
-#footer-info{
-    color:#ccc;
-}
-
-.custom_buttom-section{
-clear: both;
-padding: 10px 0 0 0;
-text-align: center;
-}
-
-.woocommerce div.product form.cart{
-    margin: 0 !important;
-}
-.mensagem_ecommerce{
-    font-size: x-small;
-    color:#666;
-    padding:5px 0;
-} */
 
 /* DAQUI PRA BAIXO É DO TEMA 2025 */
 /* DAQUI PRA BAIXO É DO TEMA 2025 */
@@ -787,4 +559,51 @@ text-align: center;
 .fa-globe{
     color: #555;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+
+    .cf-lancamento, .cf-experimentacao, .cf-encomenda{
+        display: block;
+    }   
+
+    .cf-lancamento p, .cf-experimentacao p, .cf-encomenda p{
+        padding: 10px;
+        display: block;
+    }   
+    
+
+  }
+
+    
+
+
 
