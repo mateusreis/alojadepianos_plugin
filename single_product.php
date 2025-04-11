@@ -1,4 +1,6 @@
 <?php
+
+
 function show_custom_fields(){
   global $post;
   
@@ -196,8 +198,11 @@ add_action('woocommerce_product_meta_end', 'show_extras', 200);
 // show price
 function show_prices(){
   global $product;
+
+
   echo '<div class="pricing-section">';
-  echo '<div class="main-price">';
+  echo '<div class="main-price"><h1>single-product.php</h1>';
+  
   if ($product->is_type('variable')){
     $variations = $product->get_available_variations();
     $prices = array();
@@ -229,6 +234,7 @@ function show_prices(){
       echo '<span class="price">xx R$'. number_format($sale_price, 2, ',', '.') .'</span>';
     }
   }
+
   echo '<div class="installment-info">';
   echo '<div class="card-icon">';
   echo '<i class="far fa-credit-card"></i>';
@@ -238,26 +244,29 @@ function show_prices(){
   echo '<a href="#" class="payment-options">mais formas de pagamento</a>';
   echo '</div>';
   echo '</div>';
-  // Check if product has shipping enabled
-  if ($product->needs_shipping()) {
-    echo '<div class="shipping-info">';
-    echo '<span class="truck-icon">';
-    echo '<i class="fas fa-truck"></i>';
-    echo '</span>';
-    echo '<span class="shipping-text">';
-    echo '<span>Produto com frete</span>';
-    echo '</span>';
-    echo '</div>';
-  } else {
-    echo '<div class="shipping-info">';
-    echo '<span class="truck-icon">';
-    echo '<i class="fas fa-ban"></i>';
-    echo '</span>'; 
-    echo '<span class="shipping-text">';
-    echo '<span>Produto sem frete</span>';
-    echo '</span>';
-    echo '</div>';
-  }
+
+
+
+  // // Check if product has shipping enabled
+  // if ($product->needs_shipping()) {
+  //   echo '<div class="shipping-info">';
+  //   echo '<span class="truck-icon">';
+  //   echo '<i class="fas fa-truck"></i>';
+  //   echo '</span>';
+  //   echo '<span class="shipping-text">';
+  //   echo '<span>Produto com frete</span>';
+  //   echo '</span>';
+  //   echo '</div>';
+  // } else {
+  //   echo '<div class="shipping-info">';
+  //   echo '<span class="truck-icon">';
+  //   echo '<i class="fa-solid fa-store"></i>';
+  //   echo '</span>'; 
+  //   echo '<span class="shipping-text">';
+  //   echo '<span>Somente retirada na loja</span>';
+  //   echo '</span>';
+  //   echo '</div>';
+  // }
   // Check if product has shipping enabled
   // Check if product has shipping class "Somente retirada"
   $shipping_class_id = $product->get_shipping_class_id();
@@ -274,11 +283,23 @@ function show_prices(){
     </div>
 <?php
   }else{
+
+    echo '<div class="shipping-info">';
+    echo '<span class="truck-icon">';
+    echo '<i class="fas fa-truck"></i>';
+    echo '</span>';
+    echo '<span class="shipping-text">';
+    echo '<span>Produto com frete</span>';
+    echo '</span>';
+    echo '</div>';
+
     echo do_shortcode('[calculadora_melhor_envio product_id="'. $product->get_id() .'"]');
   }
   echo '</div>'; // main-price
   echo '</div>'; // pricing-section
 }   
+
+
 
 // Change "Add to cart" button text to "Comprar"
 add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text');

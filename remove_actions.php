@@ -100,12 +100,12 @@
   * Remove the Sort by dropdown completely
   */  
  
-  function thenga_remove_filtering() {
+  function remove_sort_by_dropdown() {
    remove_action('woocommerce_catalog_ordering', 'woocommerce_catalog_ordering');
    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10 );
    remove_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
  }
- add_action( 'init', 'thenga_remove_filtering',1 );
+ add_action( 'init', 'remove_sort_by_dropdown',1 );
  
  /**
   * Remove product tags display from single product pages

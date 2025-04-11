@@ -11,14 +11,13 @@
 require_once plugin_dir_path(__FILE__) . 'admin_page.php';
 require_once plugin_dir_path(__FILE__) . 'custom_fields.php';
 require_once plugin_dir_path(__FILE__) . 'help_page.php';
-// require_once plugin_dir_path(__FILE__) . 'remove_actions.php';
+// require_once plugin_dir_path(__FILE__) . 'remove_actions.php'; // migrado para o tema
 
 require_once plugin_dir_path(__FILE__) . 'translations.php';
-require_once plugin_dir_path(__FILE__) . 'whatsapp.php';
+// require_once plugin_dir_path(__FILE__) . 'whatsapp.php';
 
-require_once plugin_dir_path(__FILE__) . 'single_product.php';
-
-require_once plugin_dir_path(__FILE__) . 'loop.php';
+// require_once plugin_dir_path(__FILE__) . 'single_product.php'; // 
+// require_once plugin_dir_path(__FILE__) . 'loop.php'; // migrado para o tema
 // require_once plugin_dir_path(__FILE__) . 'test.php';
 
 
@@ -87,26 +86,31 @@ add_action( 'woocommerce_product_query', 'show_newest_products_only' );
 
 
 //  intercept the variable.php template
+// da pau no simgle product
 
-add_filter( 'woocommerce_locate_template', 'intercept_wc_template', 10, 3 );
-/**
- * Filter the cart template path to use cart.php in this plugin instead of the one in WooCommerce.
- *
- * @param string $template      Default template file path.
- * @param string $template_name Template file slug.
- * @param string $template_path Template file name.
- *
- * @return string The new Template file path.
- */
-function intercept_wc_template( $template, $template_name, $template_path ) {
+// add_filter( 'woocommerce_locate_template', 'intercept_wc_template', 10, 3 );
+// /**
+//  * Filter the cart template path to use cart.php in this plugin instead of the one in WooCommerce.
+//  *
+//  * @param string $template      Default template file path.
+//  * @param string $template_name Template file slug.
+//  * @param string $template_path Template file name.
+//  *
+//  * @return string The new Template file path.
+//  */
+// function intercept_wc_template( $template, $template_name, $template_path ) {
 
-	if ( 'variable.php' === basename( $template ) ) {
-		$template = trailingslashit( plugin_dir_path( __FILE__ ) ) . 'woocommerce/single-product/add-to-cart/variable.php';
-	}
+// 	if ( 'single-product/add-to-cart/variable.php' === basename( $template ) ) {
+// 		$template = trailingslashit( plugin_dir_path( __FILE__ ) ) . 'woocommerce/single-product/add-to-cart/variable.php';
+// 	}
 
-	return $template;
+// 	if ( 'simple.php' === basename( $template ) ) {
+// 		$template = trailingslashit( plugin_dir_path( __FILE__ ) ) . 'woocommerce/single-product/add-to-cart/simple.php';
+// 	}
 
-}
+// 	return $template;
+
+// }
 
 
 
