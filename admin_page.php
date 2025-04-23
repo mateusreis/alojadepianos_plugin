@@ -42,12 +42,21 @@ function cft_add_menu_page() {
                 
                 
                 <tr valign="top">
-                    <th scope="row">Texto que aparece no botão do Whatsapp:</th>
+                    <th scope="row">Telefone Whatsapp com 5511:</th>
                     <td>
                         <input type="text" name="custom_whatsapp_phonenumber" placeholder="5511XXXXXXXX." value="<?php echo esc_attr(get_option('custom_whatsapp_phonenumber')); ?>">  
-                        <p class="omw-description">Por padrão exibe: Gostaria de encomenda este produto.</p>
+                        <p class="omw-description">Ex.: 5511XXXXXXXX, vai no link do whatsapp.</p>
                     </td>
                 </tr>
+
+                
+                <tr valign="top">
+                    <th scope="row">Texto do Whatsapp:</th>
+                    <td>
+                        <input type="text" name="custom_whatsapp_phonenumber_br" placeholder="(11) XXXXX-XXXX." value="<?php echo esc_attr(get_option('custom_whatsapp_phonenumber_br')); ?>">  
+                        <p class="omw-description">Ex: (11) XXXXX-XXXX, vai no botão e link do whatsapp.</p>
+                    </td>
+                </tr>                
                 
                 <tr valign="top">
                     <th scope="row">Texto que aparece no botão do Whatsapp:</th>
@@ -65,6 +74,13 @@ function cft_add_menu_page() {
                     </td>
                 </tr>
   
+                                <tr valign="top">
+                    <th scope="row">Texto que aparece no chat do whatsapp:</th>
+                    <td>
+                        <input type="text" name="custom_whatsapp_texto_mensagem_generica" placeholder="Olá, gostaria de tirar uma dúvida, poderiam me ajudar?" value="<?php echo esc_attr(get_option('custom_whatsapp_texto_mensagem_generica')); ?>">  
+                        <p class="omw-description">Por padrão exibe: Olá, gostaria de tirar uma dúvida, poderiam me ajudar?</p>
+                    </td>
+                </tr>
   
                 <tr valign="top">
                     <td  span="2">
@@ -116,6 +132,59 @@ function cft_add_menu_page() {
                 </tr>
 
 
+                <tr valign="top">
+                    <td  span="2">
+                      <h2>REDES SOCIAIS</h2>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">URL Facebook:</th>
+                    <td>
+                        <input type="text" name="custom_facebook_url" value="<?php echo esc_attr(get_option('custom_facebook_url')); ?>">
+                        <p class="omw-description">Obs.: Sem https://</p>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">URL YouTube:</th>
+                    <td>
+                        <input type="text" name="custom_youtube_url" value="<?php echo esc_attr(get_option('custom_youtube_url')); ?>">
+                        <p class="omw-description">Obs.: Sem https://</p>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">URL Instagram:</th>
+                    <td>
+                        <input type="text" name="custom_instagram_url" value="<?php echo esc_attr(get_option('custom_instagram_url')); ?>">
+                        <p class="omw-description">Obs.: Sem https://</p>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">URL TikTok:</th>
+                    <td>
+                        <input type="text" name="custom_tiktok_url" value="<?php echo esc_attr(get_option('custom_tiktok_url')); ?>">
+                        <p class="omw-description">Obs.: Sem https://</p>
+                    </td>
+                </tr>
+
+
+                <tr valign="top">
+                    <td  span="2">
+                      <h2>FOOTER</h2>
+                    </td>
+                </tr>                
+
+                <tr valign="top">
+                    <th scope="row">CNPJ:</th>
+                    <td>
+                        <input type="text" name="custom_cnpj" value="<?php echo esc_attr(get_option('custom_cnpj')); ?>">
+                    </td>
+                </tr>
+
+                
             </table>
   
             <?php submit_button(); ?>
@@ -128,6 +197,8 @@ function cft_add_menu_page() {
   function cft_register_settings() {
     // register_setting('cft_settings_group', 'custom_notice_message', 'sanitize_text_field');
     register_setting('cft_settings_group', 'custom_whatsapp_phonenumber');  
+    register_setting('cft_settings_group', 'custom_whatsapp_phonenumber_br');  
+    register_setting('cft_settings_group', 'custom_whatsapp_texto_mensagem_generica');  
     register_setting('cft_settings_group', 'custom_whatsapp_texto_botao');  
     register_setting('cft_settings_group', 'custom_whatsapp_texto_mensagem');  
     register_setting('cft_settings_group', 'custom_parcels');  
@@ -136,6 +207,13 @@ function cft_add_menu_page() {
 
     register_setting('cft_settings_group', 'custom_notice_message_top');  
     register_setting('cft_settings_group', 'custom_notice_message_top_checkbox');    
+
+    register_setting('cft_settings_group', 'custom_facebook_url');  
+    register_setting('cft_settings_group', 'custom_youtube_url');  
+    register_setting('cft_settings_group', 'custom_instagram_url');  
+    register_setting('cft_settings_group', 'custom_tiktok_url');  
+
+    register_setting('cft_settings_group', 'custom_cnpj');  
   }
   add_action('admin_init', 'cft_register_settings');
   
