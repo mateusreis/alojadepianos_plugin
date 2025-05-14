@@ -12,5 +12,5 @@ require_once plugin_dir_path(__FILE__) . 'admin_page.php';
 require_once plugin_dir_path(__FILE__) . 'custom_fields.php';
 require_once plugin_dir_path(__FILE__) . 'help_page.php';
 require_once plugin_dir_path(__FILE__) . 'translations.php';
-
+require_once plugin_dir_path(__FILE__) . 'blocks.php';
 ?>

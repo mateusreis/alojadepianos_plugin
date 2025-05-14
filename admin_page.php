@@ -96,25 +96,14 @@ function cft_add_menu_page() {
                     </td>
                 </tr>
   
+
+
                 <tr valign="top">
                     <td  span="2">
-                      <h2>AVISO</h2>
+                      <h2>AVISO HEADER</h2>
                     </td>
                 </tr>
   
-                <tr valign="top">
-                    <th scope="row">Texto de aviso (aparece abaixo do header, acima dos produtos).</th>
-                    <td>
-                        <textarea cols="40" rows="5" name="custom_notice_message"><?php echo esc_attr(get_option('custom_notice_message')); ?></textarea>
-                    </td>
-                </tr>
-  
-                <tr valign="top">
-                    <th scope="row">Exibir aviso?</th>
-                    <td>
-                        <input type="checkbox" name="custom_notice_message_checkbox" value="1" <?php checked(1, get_option('custom_notice_message_checkbox'), true); ?> />
-                    </td>
-                </tr>
 
   
                 <tr valign="top">
@@ -134,6 +123,27 @@ function cft_add_menu_page() {
 
                 <tr valign="top">
                     <td  span="2">
+                      <h2>AVISO PRODUTOS</h2>
+                    </td>
+                </tr>
+  
+                <tr valign="top">
+                    <th scope="row">Texto de aviso (aparece abaixo do header, acima dos produtos).</th>
+                    <td>
+                        <textarea cols="40" rows="5" name="custom_notice_message"><?php echo esc_attr(get_option('custom_notice_message')); ?></textarea>
+                    </td>
+                </tr>
+  
+                <tr valign="top">
+                    <th scope="row">Exibir aviso?</th>
+                    <td>
+                        <input type="checkbox" name="custom_notice_message_checkbox" value="1" <?php checked(1, get_option('custom_notice_message_checkbox'), true); ?> />
+                    </td>
+                </tr>
+
+
+                <tr valign="top">
+                    <td  span="2">
                       <h2>REDES SOCIAIS</h2>
                     </td>
                 </tr>
@@ -142,7 +152,7 @@ function cft_add_menu_page() {
                     <th scope="row">URL Facebook:</th>
                     <td>
                         <input type="text" name="custom_facebook_url" value="<?php echo esc_attr(get_option('custom_facebook_url')); ?>">
-                        <p class="omw-description">Obs.: Sem https://</p>
+                        <p class="omw-description">Obs.: Sem https:// www.facebook.com/alojadepianosoficial</p>
                     </td>
                 </tr>
 
@@ -150,7 +160,7 @@ function cft_add_menu_page() {
                     <th scope="row">URL YouTube:</th>
                     <td>
                         <input type="text" name="custom_youtube_url" value="<?php echo esc_attr(get_option('custom_youtube_url')); ?>">
-                        <p class="omw-description">Obs.: Sem https://</p>
+                        <p class="omw-description">Obs.: Sem https://  www.youtube.com/@alojadepianos</p>
                     </td>
                 </tr>
 
@@ -158,7 +168,7 @@ function cft_add_menu_page() {
                     <th scope="row">URL Instagram:</th>
                     <td>
                         <input type="text" name="custom_instagram_url" value="<?php echo esc_attr(get_option('custom_instagram_url')); ?>">
-                        <p class="omw-description">Obs.: Sem https://</p>
+                        <p class="omw-description">Obs.: Sem https:// www.instagram.com/alojadepianos/</p>
                     </td>
                 </tr>
 
@@ -166,7 +176,7 @@ function cft_add_menu_page() {
                     <th scope="row">URL TikTok:</th>
                     <td>
                         <input type="text" name="custom_tiktok_url" value="<?php echo esc_attr(get_option('custom_tiktok_url')); ?>">
-                        <p class="omw-description">Obs.: Sem https://</p>
+                        <p class="omw-description">Obs.: Sem https://  www.tiktok.com/@alojadepianos</p>
                     </td>
                 </tr>
 
@@ -178,11 +188,27 @@ function cft_add_menu_page() {
                 </tr>                
 
                 <tr valign="top">
-                    <th scope="row">CNPJ:</th>
+                    <th scope="row">CNPJ: </th>
                     <td>
                         <input type="text" name="custom_cnpj" value="<?php echo esc_attr(get_option('custom_cnpj')); ?>">
+                        <p class="omw-description">Obs.: 09.043.757/0001-37</p>
                     </td>
                 </tr>
+
+
+                <tr valign="top">
+                    <td  span="2">
+                      <h2>DEBUG DE PRODUTOS</h2>
+                    </td>
+                </tr>              
+  
+                <tr valign="top">
+                    <th scope="row">Exibir debug do produto no loop:</th>
+                    <td>
+                        <input type="checkbox" name="custom_show_product_debug" value="1" <?php checked(1, get_option('custom_show_product_debug'), true); ?> />
+                        <p class="omw-description">Exibe o debug do produto no loop.</p>
+                    </td>
+                </tr>                
 
                 
             </table>
@@ -214,6 +240,8 @@ function cft_add_menu_page() {
     register_setting('cft_settings_group', 'custom_tiktok_url');  
 
     register_setting('cft_settings_group', 'custom_cnpj');  
+    register_setting('cft_settings_group', 'custom_show_product_description_in_loop');  
+    register_setting('cft_settings_group', 'custom_show_product_debug');  
   }
   add_action('admin_init', 'cft_register_settings');
   

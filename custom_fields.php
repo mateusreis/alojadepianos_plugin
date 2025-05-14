@@ -40,15 +40,15 @@
     $disponivel_para_experimentacao_checked = checked($disponivel_para_experimentacao_value, '1', false);
     echo '<p>';
     echo '<input type="checkbox" id="disponivel_para_experimentacao" name="disponivel_para_experimentacao" value="1" ' . $disponivel_para_experimentacao_checked . ' />';
-    echo '<label for="disponivel_para_experimentacao">Disponível para experimentação?</label>';
+    echo '<label for="disponivel_para_experimentacao">Disponível para experimentação</label>';
     echo '</p>';
 
-    // Campo "Vendido por encomenda?" (checkbox)
+    // Campo "Vendido por encomenda" (checkbox)
     $vendido_por_encomenda_value = get_post_meta($post->ID, 'vendido_por_encomenda', true);
     $vendido_por_encomenda_checked = checked($vendido_por_encomenda_value, '1', false);
     echo '<p>';
     echo '<input type="checkbox" id="vendido_por_encomenda" name="vendido_por_encomenda" value="1" ' . $vendido_por_encomenda_checked . ' />';
-    echo '<label for="vendido_por_encomenda">Vendido por encomenda?</label>';
+    echo '<label for="vendido_por_encomenda">Vendido por encomenda</label>';
     echo '</p>';
 
     // Campo "É um Lançamento?" (checkbox)
@@ -56,26 +56,34 @@
     $lancamento_checked = checked($lancamento_value, '1', false);
     echo '<p>';
     echo '<input type="checkbox" id="lancamento" name="lancamento" value="1" ' . $lancamento_checked . ' />';
-    echo '<label for="lancamento">É um Lançamento?</label>';
+    echo '<label for="lancamento">Lançamento</label>';
     echo '</p>';
 
     // Campo "Data de término da promoção" (texto)
     // se a data for nula, fica como lançamento até desmarcar o checkbox
-    $lancamento_termino_value = get_post_meta($post->ID, 'lancamento_termino', true);
-    echo '<p>';
-    echo '<label for="lancamento_termino">Até quando ele será lançamento?</label><br>';
-    echo '<input type="date" id="lancamento_termino" name="lancamento_termino" value="' . esc_attr($lancamento_termino_value) . '" />';
-    echo '</p>';
-    echo '<p>* Se não tiver uma data final ele fica como lançamento até desmarcar o checkbox</p>';
+    // $lancamento_termino_value = get_post_meta($post->ID, 'lancamento_termino', true);
+    // echo '<p>';
+    // echo '<label for="lancamento_termino">Até quando ele será lançamento?</label><br>';
+    // echo '<input type="date" id="lancamento_termino" name="lancamento_termino" value="' . esc_attr($lancamento_termino_value) . '" />';
+    // echo '</p>';
+    // echo '<p>* Se não tiver uma data final ele fica como lançamento até desmarcar o checkbox</p>';
 
 
     // Campo "Está em PROMOÇÃO?" (checkbox)
-    $promocao_value = get_post_meta($post->ID, '_promocao', true); // Note o "_" antes de "promocao"
-    $promocao_checked = checked($promocao_value, '1', false);
-    echo '<p>';
-    echo '<input type="checkbox" id="promocao" name="promocao" value="1" ' . $promocao_checked . ' />';
-    echo '<label for="promocao">Está em PROMOÇÃO?</label>'; // Texto corrigido para clareza
-    echo '</p>';
+    // $promocao_value = get_post_meta($post->ID, '_promocao', true); // Note o "_" antes de "promocao"
+    // $promocao_checked = checked($promocao_value, '1', false);
+    // echo '<p>';
+    // echo '<input type="checkbox" id="promocao" name="promocao" value="1" ' . $promocao_checked . ' />';
+    // echo '<label for="promocao">Está em PROMOÇÃO</label>'; // Texto corrigido para clareza
+    // echo '</p>';
+
+    // Campo "Preço sob consulta?" (checkbox)
+    // $preco_sob_consulta_value = get_post_meta($post->ID, 'preco_sob_consulta', true);
+    // $preco_sob_consulta_checked = checked($preco_sob_consulta_value, '1', false);
+    // echo '<p>';
+    // echo '<input type="checkbox" id="preco_sob_consulta" name="preco_sob_consulta" value="1" ' . $preco_sob_consulta_checked . ' />';
+    // echo '<label for="preco_sob_consulta">Preço sob consulta</label>';
+    // echo '</p>';
 
     // Campo "Site oficial" (texto)
     $site_oficial_value = get_post_meta($post->ID, 'site_oficial', true);
@@ -158,6 +166,13 @@ function save_product_custom_fields_values($post_id) {
     } else {
         update_post_meta($post_id, 'promocao', '0');
     }
+
+
+    if (isset($_POST['preco_sob_consulta'])) {
+        update_post_meta($post_id, 'preco_sob_consulta', '1'); 
+    } else {
+        update_post_meta($post_id, 'preco_sob_consulta', '0');
+    }    
 
     if (isset($_POST['site_oficial'])) {
         update_post_meta($post_id, 'site_oficial', sanitize_text_field($_POST['site_oficial']));
